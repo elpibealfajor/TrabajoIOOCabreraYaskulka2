@@ -5,6 +5,8 @@ namespace Game
 {
     public class Program
     {
+        public static float deltaTime;
+
         static void Main(string[] args)
         {
             Engine.Initialize();
