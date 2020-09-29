@@ -87,14 +87,14 @@ namespace Game
         {
             if (isAlive)
             {
-                CheckCollisions(Program.bullets);
+                CheckCollisions(GameManager.Instance.LevelController.Bullets);
 
             }
             else
             {
                 if (currentAnimation.CurrentFrameIndex == currentAnimation.FramesCount - 1)
                 {
-                    Program.enemies.Remove(this);
+                    GameManager.Instance.LevelController.Enemies.Remove(this);
                 }
             }
 

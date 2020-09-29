@@ -31,7 +31,7 @@ namespace Game
         private LifeController lifeController;
         private Animation idleAnimation;
         private Animation currentAnimation;
-
+        //private const float IDLE_ANIMATION_PATH = "Png/Player/Idle/;
         //animaciones
 
         public Vector2 Position { get; set; } = Vector2.Zero;

@@ -33,7 +33,7 @@ namespace Game
             this.speed = speed;
             this.damage = damage;
 
-            Program.bullets.Add(this);
+            GameManager.Instance.LevelController.Bullets.Add(this);
             CreateAnimations();
             currentAnimation = idleAnimation;
             collisionRadius = Height > Width ? Height / 2 : Width / 2;
@@ -70,7 +70,7 @@ namespace Game
 
         public void DestroyBullet()
         {
-            Program.bullets.Remove(this);
+            GameManager.Instance.LevelController.Bullets.Remove(this);
         }
 
 

@@ -38,10 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="Boss.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="LevelController.cs" />
     <Compile Include="LifeController.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
