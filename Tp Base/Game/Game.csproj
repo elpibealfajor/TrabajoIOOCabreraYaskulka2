@@ -66,13 +66,13 @@
     <Content Include="Png\Bullet\Idle\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Png\Damage\1.png">
+    <Content Include="Png\Enemy\Damage\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Png\Damage\2.png">
+    <Content Include="Png\Enemy\Damage\2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Png\Damage\3.png">
+    <Content Include="Png\Enemy\Damage\3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Png\Enemy\Destroy\1.png">
