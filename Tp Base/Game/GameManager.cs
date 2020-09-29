@@ -151,5 +151,7 @@ namespace Game
                 LevelController.CreationOfEnemies();
             }
         }
+
+        //asd
     }
 }
