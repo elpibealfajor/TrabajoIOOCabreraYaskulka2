@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
@@ -17,8 +13,17 @@ namespace Game
             WinScreen,
             Level                          
         }
+        public const string GAMEOVERTEXTURE_PATH = ("Png/Screens/Loser.png");
+        public const string WIN_TEXTURE_PATH = ("Png/Screens/Win.png");
+        public const string CREDITS_TEXTURE_PATH = ("Png/Screens/Credits.png");
 
         public LevelController LevelController { get; private set; } //para poder acceder desde las otras clases
+        public SimpleMenuScreen GameOverScreen { get; private set; }
+        public SimpleMenuScreen WinScreen { get; private set; }
+
+        public SimpleMenuScreen Credits { get; private set; }
+        public MainMenu MainMenu { get; private set; }
+
 
         private static GameManager instance;
 
@@ -40,27 +45,44 @@ namespace Game
         public void Initialization()
         {
             LevelController = new LevelController();
-            ChangeGameState(GameState.Level);
+            GameOverScreen = new SimpleMenuScreen(GAMEOVERTEXTURE_PATH);
+            WinScreen = new SimpleMenuScreen(WIN_TEXTURE_PATH);
+            MainMenu = new MainMenu();
+            Credits = new SimpleMenuScreen(CREDITS_TEXTURE_PATH);
+            ChangeGameState(GameState.MainMenu);
         }
 
 
         public void Update()
         {
+            if(Engine.GetKey(Keys.F1))
+            {
+                ChangeGameState(GameState.WinScreen);
+            }
+
+            if (Engine.GetKey(Keys.F2))
+            {
+                ChangeGameState(GameState.GameOverScreen);
+            }
+
+
             switch (CurrentState) //casos posibles de var
             {
                 case GameState.MainMenu:
-
+                    MainMenu.Update();
                     break;
                 case GameState.Credits:
-
+                    Credits.Update();
                     break;
                 case GameState.Options:
 
                     break;
                 case GameState.GameOverScreen:
+                    GameOverScreen.Update();
 
                     break;
                 case GameState.WinScreen:
+                    WinScreen.Update();
 
                     break;
                 case GameState.Level:
@@ -75,18 +97,22 @@ namespace Game
             switch (CurrentState)
             {
                 case GameState.MainMenu:
-                    //MainMenu.Render
+                    MainMenu.Render();
+
                     break;
                 case GameState.Credits:
+                    Credits.Render();
 
                     break;
                 case GameState.Options:
 
                     break;
                 case GameState.GameOverScreen:
+                    GameOverScreen.Render();
 
                     break;
                 case GameState.WinScreen:
+                    WinScreen.Render();
 
                     break;
                 case GameState.Level:
@@ -101,6 +127,11 @@ namespace Game
         public void ChangeGameState(GameState newState)
         {
             CurrentState = newState;
+        }
+
+        public void ExitGame()
+        {
+            Environment.Exit(1);
         }
     }
 

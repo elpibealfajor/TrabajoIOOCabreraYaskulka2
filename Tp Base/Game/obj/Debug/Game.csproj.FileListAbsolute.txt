@@ -50,7 +50,6 @@ C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Gam
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Player\Idle\2.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Player\Idle\3.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Player\Idle\4.png
-C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\ship.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Game.exe
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Game.pdb
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\obj\Debug\Game.csprojAssemblyReference.cache
@@ -60,3 +59,13 @@ C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Gam
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Enemy\Damage\1.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Enemy\Damage\2.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Enemy\Damage\3.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Credits-.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Credits.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Play.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Quit-.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Quit.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Buttons\Play-.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Credits.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Loser.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\MainMenu.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Win.png
