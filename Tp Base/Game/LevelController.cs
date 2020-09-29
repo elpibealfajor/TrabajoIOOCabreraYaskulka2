@@ -24,22 +24,7 @@ namespace Game
 
             Random random = new Random();
 
-            float x = 0;
-            float y = 5;
-
-            for (int i = 0; i < 6; i++)
-            {
-                y += 100;
-                x = 450;
-                for (int k = 0; k < 3; k++)
-                {
-                    x += 100;
-                    Enemy enemies2 = new Enemy(new Vector2(x, y), 0.75f, 0f, 100f, 100);
-                    Enemies.Add(enemies2);
-
-                }
-
-            }
+            CreationOfEnemies();
         }
 
         public void Update()
@@ -83,6 +68,26 @@ namespace Game
             for (int i = Enemies.Count - 1; i >= 0; i--)
             {
                 Enemies[i].Render();
+
+            }
+        }
+
+        public void CreationOfEnemies()
+        {
+            float x = 0;
+            float y = 150;
+
+            for (int i = 0; i < 3; i++)
+            {
+                y += 100;
+                x = 450;
+                for (int k = 0; k < 2; k++)
+                {
+                    x += 100;
+                    Enemy enemies2 = new Enemy(new Vector2(x, y), 0.75f, 0f, 100f, 100);
+                    Enemies.Add(enemies2);
+
+                }
 
             }
         }

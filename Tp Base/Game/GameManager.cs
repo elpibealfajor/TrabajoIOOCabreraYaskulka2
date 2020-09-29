@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Game
 {
@@ -69,6 +70,7 @@ namespace Game
             switch (CurrentState) //casos posibles de var
             {
                 case GameState.MainMenu:
+                    EnemyListIsEmpty();
                     MainMenu.Update();
                     break;
                 case GameState.Credits:
@@ -87,6 +89,7 @@ namespace Game
                     break;
                 case GameState.Level:
                     LevelController.Update();
+                    WinCondition();
                     break;
                 default:
                     break;
@@ -133,8 +136,20 @@ namespace Game
         {
             Environment.Exit(1);
         }
+
+        public void WinCondition()
+        {
+            if (!LevelController.Enemies.Any())
+            {
+                ChangeGameState(GameState.WinScreen);
+            }
+        }
+        public void EnemyListIsEmpty()
+        {
+            if (!LevelController.Enemies.Any())
+            {
+                LevelController.CreationOfEnemies();
+            }
+        }
     }
-
-
-
 }
