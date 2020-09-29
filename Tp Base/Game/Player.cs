@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Player
-    {
+	public class Player
+	{
         private float angle;
         private float scale;
         private float speed;
@@ -102,7 +102,10 @@ namespace Game
             }
             #endregion
 
-
+            if (isShootingKeyPressed && currentShootingCooldown <= 0)
+            {
+                ShootBullet(); // aun no
+            }
 
             currentAnimation.Update();
         }
@@ -135,6 +138,10 @@ namespace Game
         {
             return (currentAnimation.CurrentFrame.Height * scale) / 2f;
         }
-
+        private void ShootBullet() //aun no
+        {
+            currentShootingCooldown = shootingCooldown;
+            Bullet bullet = new Bullet(Position, 90f, 1f, 300f, 50);
+        }
     }
 }
