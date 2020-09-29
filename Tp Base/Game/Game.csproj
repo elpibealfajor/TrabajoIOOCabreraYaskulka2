@@ -52,6 +52,9 @@
     <Compile Include="Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ataud.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
