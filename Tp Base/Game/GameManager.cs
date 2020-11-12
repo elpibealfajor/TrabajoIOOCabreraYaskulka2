@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Media;
 
 namespace Game
 {
@@ -46,7 +45,6 @@ namespace Game
 
         public void Initialization()
         {
-            InitAudio();
             LevelController = new LevelController();
             GameOverScreen = new SimpleMenuScreen(GAMEOVERTEXTURE_PATH);
             WinScreen = new SimpleMenuScreen(WIN_TEXTURE_PATH);
@@ -154,11 +152,6 @@ namespace Game
             }
         }
 
-
-        public void InitAudio()
-        {
-            SoundPlayer music = new SoundPlayer("Ataud.wav");
-            music.PlayLooping();
-        }
+        //asd
     }
 }

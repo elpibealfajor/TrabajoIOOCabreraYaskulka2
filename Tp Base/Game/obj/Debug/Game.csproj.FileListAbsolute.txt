@@ -78,4 +78,3 @@ C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\G
 C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Loser.png
 C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\MainMenu.png
 C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Win.png
-C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Ataud.wav
