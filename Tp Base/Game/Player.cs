@@ -57,10 +57,6 @@ namespace Game
             isShootingKeyPressed = Engine.GetKey(Keys.SPACE);
             isMoveDownKeyPressed = Engine.GetKey(Keys.S);
             isMoveUpKeyPressed = Engine.GetKey(Keys.W);
-            isMovingInDiagonalUpRight = Engine.GetKey(Keys.W) && Engine.GetKey(Keys.D);
-            isMovingInDiagonalDownRight = Engine.GetKey(Keys.S) && Engine.GetKey(Keys.D);
-            isMovingInDiagonalUpLeft = Engine.GetKey(Keys.W) && Engine.GetKey(Keys.A);
-            isMovingInDiagonalDownLeft = Engine.GetKey(Keys.S) && Engine.GetKey(Keys.A);
         }
 
         public void Update()
@@ -68,35 +64,20 @@ namespace Game
             currentShootingCooldown -= Program.deltaTime;
             #region  // if's de input de teclado
 
-            if (isMovingInDiagonalUpRight)
-            {
-                Position = new Vector2(Position.X + speed * Program.deltaTime, Position.Y - speed * Program.deltaTime);
-            }
-            else if (isMovingInDiagonalDownRight)
-            {
-                Position = new Vector2(Position.X + speed * Program.deltaTime, Position.Y + speed * Program.deltaTime);
-            }
-            else if (isMovingInDiagonalUpLeft)
-            {
-                Position = new Vector2(Position.X - speed * Program.deltaTime, Position.Y - speed * Program.deltaTime);
-            }
-            else if (isMovingInDiagonalDownLeft)
-            {
-                Position = new Vector2(Position.X - speed * Program.deltaTime, Position.Y + speed * Program.deltaTime);
-            }
-            else if (isMoveRightKeyPressed)
+
+            if (isMoveRightKeyPressed)
             {
                 Position = new Vector2(Position.X + speed * Program.deltaTime, Position.Y);
             }
-            else if (isMoveLeftKeyPressed)
+            if (isMoveLeftKeyPressed)
             {
                 Position = new Vector2(Position.X - speed * Program.deltaTime, Position.Y);
             }
-            else if (isMoveUpKeyPressed)
+            if (isMoveUpKeyPressed)
             {
                 Position = new Vector2(Position.X, Position.Y - speed * Program.deltaTime);
             }
-            else if (isMoveDownKeyPressed)
+            if (isMoveDownKeyPressed)
             {
                 Position = new Vector2(Position.X, Position.Y + speed * Program.deltaTime);
             }
