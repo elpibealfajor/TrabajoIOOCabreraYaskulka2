@@ -45,7 +45,7 @@ namespace Game
 
         public override void Update()
         {
-            base.Update();
+            //base.Update(); // llama al update que haya en el monobehaviour
             Engine.Debug("update de player");
 
             currentShootingCooldown -= Program.deltaTime;

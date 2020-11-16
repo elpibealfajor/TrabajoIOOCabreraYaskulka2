@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Enemy
+    public class Enemy : MonoBehaviour
     {
-        private float angle;
-        private float scale;
+
         private float speed;
         private float currentShootingCooldown;
         private float shootingCooldown;
@@ -20,21 +19,20 @@ namespace Game
         private Animation damageAnimation;
         private Animation currentAnimation;
 
-        private bool isAlive;
+        private bool isAlive; // no esta usando life controller
+
         private int currentLife;
 
         private float Width => currentAnimation.CurrentFrame.Width;
         private float Height => currentAnimation.CurrentFrame.Height;
-        public Vector2 Position { get; set; } = Vector2.Zero;
 
-        public Enemy(Vector2 initialPosition, float scale, float angle, float speed, int maxLife)
+
+
+        public Enemy(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife) : base(texturePath, position, scale, angle)
         {
-            Position = initialPosition;
 
             isAlive = true;
             currentLife = maxLife;
-            this.scale = scale;
-            this.angle = angle;
             this.speed = speed;
 
             CreateAnimations();
@@ -42,19 +40,6 @@ namespace Game
 
         }
 
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, Position.X, Position.Y, scale, scale, angle, GetOffSetX(), GetOffSetY());
-        }
-        private float GetOffSetX()
-        {
-            return (currentAnimation.CurrentFrame.Width * scale) / 2f;
-        }
-
-        private float GetOffSetY()
-        {
-            return (currentAnimation.CurrentFrame.Height) / 2f;
-        }
         private void CreateAnimations()
         {
             List<Texture> idleTextures = new List<Texture>();
@@ -83,7 +68,7 @@ namespace Game
 
         }
 
-        public void Update()
+        public  override void Update()
         {
             if (isAlive)
             {
@@ -99,6 +84,7 @@ namespace Game
             }
 
             currentAnimation.Update();
+            texture = currentAnimation.CurrentFrame;
         }
 
         private void CheckCollisions(List<Bullet> bullets)

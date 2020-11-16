@@ -8,6 +8,8 @@ namespace Game
 {
     public class LevelController //aspectos generales del estado nivel
     {
+        public List<MonoBehaviour> monoBehaviours { get; private set; } = new List<MonoBehaviour>();
+
         public  List<Bullet> Bullets { get; private set; } = new List<Bullet>();  // globals del program
         public  List<Enemy> Enemies { get; private set; } = new List<Enemy>();
         public Player Player { get; private set; }
@@ -20,7 +22,7 @@ namespace Game
 
         public void Initialization()
         {
-            Player = new Player("Png/Player/Idle/",new Vector2(50, 400), 0.75f, 1f, 200);
+            Player = new Player("Png/Player/Idle/1.png",new Vector2(50, 400), 0.75f, 1f, 200);
 
             Random random = new Random();
 
@@ -84,7 +86,7 @@ namespace Game
                 for (int k = 0; k < 2; k++)
                 {
                     x += 100;
-                    Enemy enemies2 = new Enemy(new Vector2(x, y), 0.75f, 0f, 100f, 100);
+                    Enemy enemies2 = new Enemy("Png/Enemy/Idle/1.png",new Vector2(x, y), 0.75f, 0f, 100f, 100);
                     Enemies.Add(enemies2);
 
                 }

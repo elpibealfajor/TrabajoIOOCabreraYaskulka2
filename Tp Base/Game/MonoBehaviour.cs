@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class MonoBehaviour
+    public abstract class MonoBehaviour
     {
 
         protected float angle;
@@ -32,10 +32,10 @@ namespace Game
 
         public virtual void Update()
         {
-            Engine.Debug("engine de mono");
+
         }
 
-        public void Render()
+        public virtual void Render()
         {
             Engine.Draw(texture, Position.X, Position.Y, scale, scale, angle, OffsetX, OffsetY);
         }

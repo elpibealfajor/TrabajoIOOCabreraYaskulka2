@@ -29,6 +29,8 @@ namespace Game
 
         public MainMenu()
         {
+
+
             playButton = new Button(PLAY_BUTTON_TEXTURE_PATH_S, new Vector2(400,250),1,0,PLAY_BUTTON_TEXTURE_PATH_N );
             creditsButton = new Button(CREDITS_BUTTON_TEXTURE_PATH_S, new Vector2(400, 400),1,0, CREDITS_BUTTON_TEXTURE_PATH_N);
             quitButton = new Button(QUIT_BUTTON_TEXTURE_PATH_S, new Vector2(400, 550) , 1,0,QUIT_BUTTON_TEXTURE_PATH_N);

@@ -40,10 +40,6 @@ namespace Game
             GameManager.Instance.Initialization();
         }
 
-        //private static void InputDetection()
-        //{
-
-        //}
 
         private static void Update()
         {

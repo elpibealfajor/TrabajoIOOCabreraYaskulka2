@@ -157,7 +157,7 @@ namespace Game
 
         public void InitAudio()
         {
-            SoundPlayer music = new SoundPlayer("Ataud.wav");
+            //SoundPlayer music = new SoundPlayer("Ataud.wav");
             music.PlayLooping();
         }
     }
