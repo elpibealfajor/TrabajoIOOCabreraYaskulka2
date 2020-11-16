@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-	public class Player
+	public class Player : MonoBehaviour
 	{
-        private float angle;
-        private float scale;
         private float speed;
 
         #region // Variables de inputs de teclado
@@ -18,38 +16,24 @@ namespace Game
         private bool isMoveLeftKeyPressed;
         private bool isMoveUpKeyPressed;
         private bool isMoveDownKeyPressed;
-        private bool isMovingInDiagonalUpRight;
-        private bool isMovingInDiagonalDownRight;
-        private bool isMovingInDiagonalUpLeft;
-        private bool isMovingInDiagonalDownLeft;
         #endregion
 
         private bool isShootingKeyPressed;
 
         private float currentShootingCooldown;
         private float shootingCooldown = 0.5f;
-        private LifeController lifeController;
         private Animation idleAnimation;
         private Animation currentAnimation;
-        //private const float IDLE_ANIMATION_PATH = "Png/Player/Idle/;
-        //animaciones
 
-        public Vector2 Position { get; set; } = Vector2.Zero;
-
-        public Player(Vector2 position, float angle, float scale, float speed, int maxLife)
+        public Player(string texturePath, Vector2 position, float scale, float angle, float speed) : base(texturePath, position, scale, angle)
         {
-            Position = position;
-
-            this.lifeController = new LifeController(maxLife);
-            this.angle = angle;
-            this.scale = scale;
+            Engine.Debug("constructor de player");
             this.speed = speed;
-
             CreateAnimations();
             currentAnimation = idleAnimation;
-
         }
 
+        //private const float IDLE_ANIMATION_PATH = "Png/Player/Idle/;
         public void InputDetection()
         {
             isMoveRightKeyPressed = Engine.GetKey(Keys.D);
@@ -59,8 +43,11 @@ namespace Game
             isMoveUpKeyPressed = Engine.GetKey(Keys.W);
         }
 
-        public void Update()
+        public override void Update()
         {
+            base.Update();
+            Engine.Debug("update de player");
+
             currentShootingCooldown -= Program.deltaTime;
             #region  // if's de input de teclado
 
@@ -89,12 +76,9 @@ namespace Game
             }
 
             currentAnimation.Update();
+            texture = currentAnimation.CurrentFrame;
         }
 
-        public void Attack()
-        {
-
-        }
 
         private void CreateAnimations()
         {
@@ -106,20 +90,9 @@ namespace Game
             }
             idleAnimation = new Animation(idleTextures, 0.18f, true, "Idle");
         }
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, Position.X, Position.Y, scale, scale, angle, GetOffSetX(), GetOffSetY());
 
-        }
-        private float GetOffSetX()
-        {
-            return (currentAnimation.CurrentFrame.Width * scale) / 2f;
-        }
-        private float GetOffSetY()
-        {
-            return (currentAnimation.CurrentFrame.Height * scale) / 2f;
-        }
-        private void ShootBullet() //aun no
+
+        private void ShootBullet() 
         {
             currentShootingCooldown = shootingCooldown;
             Bullet bullet = new Bullet(Position, 90f, 1f, 300f, 50);

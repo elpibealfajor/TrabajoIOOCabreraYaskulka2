@@ -43,6 +43,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="MonoBehaviour.cs" />
     <Compile Include="SimpleMenuScreen.cs" />
     <Compile Include="LevelController.cs" />
     <Compile Include="LifeController.cs" />

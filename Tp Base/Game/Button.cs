@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Button
+    public class Button : MonoBehaviour
     {
-        private Vector2 position;
-        private string selectedTexture;
-        private string normalTexture;
-        private string currentTexture;
+        private Texture selectedTexture;
+        private Texture normalTexture;
 
         public Button NextButton { get; private set; }
         public Button PreviousButton { get; private set; }
 
-        public Button(string selectedTexture, string normalTexture, Vector2 position)
+        public Button(string texturePath, Vector2 position, float scale, float angle, string selectedTexture) : base(texturePath, position, scale, angle)
         {
-            this.selectedTexture = selectedTexture;
-            this.normalTexture = normalTexture;
-            this.position = position;
+            Engine.Debug("constructor de boton");
 
-            this.currentTexture = normalTexture;
+            this.selectedTexture = Engine.GetTexture(selectedTexture);
+            this.normalTexture = Engine.GetTexture(texturePath);
+
+            this.texture = normalTexture;
             NormalButton();
         }
 
@@ -32,24 +31,16 @@ namespace Game
             PreviousButton = previousButton;
 
         }
-        public void Update()
-        {
 
-        }
 
         public void SelectedButton()
         {
-            this.currentTexture = selectedTexture;
+            this.texture = selectedTexture;
         }
 
         public void NormalButton()
         {
-            this.currentTexture = normalTexture;
-        }
-
-        public void Render()
-        {
-            Engine.Draw(currentTexture,position.X,position.Y);
+            this.texture = normalTexture;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Game
 
         public void Initialization()
         {
-            Player = new Player(new Vector2(50, 400), 0.75f, 1f, 200, 100);
+            Player = new Player("Png/Player/Idle/",new Vector2(50, 400), 0.75f, 1f, 200);
 
             Random random = new Random();
 
