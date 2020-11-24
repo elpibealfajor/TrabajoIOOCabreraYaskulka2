@@ -24,13 +24,13 @@ namespace Game
         private float shootingCooldown = 0.5f;
         private Animation idleAnimation;
         private Animation currentAnimation;
-
+        private PoolBullets poolBullets;
         public Player(string texturePath, Vector2 position, float scale, float angle, float speed) : base(texturePath, position, scale, angle)
         {
-            Engine.Debug("constructor de player");
             this.speed = speed;
             CreateAnimations();
             currentAnimation = idleAnimation;
+            poolBullets = new PoolBullets();
         }
 
         //private const float IDLE_ANIMATION_PATH = "Png/Player/Idle/;
@@ -46,7 +46,6 @@ namespace Game
         public override void Update()
         {
             //base.Update(); // llama al update que haya en el monobehaviour
-            Engine.Debug("update de player");
 
             currentShootingCooldown -= Program.deltaTime;
             #region  // if's de input de teclado
@@ -95,7 +94,9 @@ namespace Game
         private void ShootBullet() 
         {
             currentShootingCooldown = shootingCooldown;
-            Bullet bullet = new Bullet(Position, 90f, 1f, 300f, 50);
+            //Bullet bullet = new Bullet(Position, 90f, 1f, 300f, 50);
+            Bullet bullet = poolBullets.GetBullet();
+            bullet.Position = Position;
         }
     }
 }

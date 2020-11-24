@@ -38,9 +38,21 @@ namespace Game
             startDate = DateTime.Now;
             Engine.Initialize("ElCabron", 800, 675);
             GameManager.Instance.Initialization();
+
+            //GenericExample<int, int> exampleInt = new GenericExample<int,int>(2,2);
+
+            //GenericExample<Player> plaaayer = new GenericExample<Player>(new Player((1,1),1,0,10,0));
+
         }
 
+        private static void TestGenericMethod<T>(T param)
+        {
 
+        }
+        private  void TeestGenericMethod<T>(T param)
+        {
+            //return default(T);
+        }
         private static void Update()
         {
             GameManager.Instance.Update();
@@ -50,6 +62,7 @@ namespace Game
         {
             Engine.Clear();
             Engine.Draw("Png/Background/Fondo.jpeg");
+            Engine.Draw("Png/Hud.png",50,0);
             GameManager.Instance.Render();
             Engine.Show();
         }

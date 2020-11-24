@@ -8,6 +8,8 @@ namespace Game
 {
     public class Bullet
     {
+        private int initialDamage;
+        private float initialSpeed;
         private float angle;
         private float scale;
         private float speed;
@@ -17,7 +19,7 @@ namespace Game
         private float lifeTime = 8f;
         private float currentLifeTime;
         private int damage;
-
+        public event Action<Bullet> OnDeactivate;
         public float CollisionRadius => collisionRadius;
         public int Damage => damage;
         public Vector2 Position { get; set; } = Vector2.Zero;
@@ -30,13 +32,13 @@ namespace Game
 
             this.angle = angle;
             this.scale = scale;
-            this.speed = speed;
-            this.damage = damage;
+            initialSpeed = speed;
+            initialDamage = damage;
 
-            GameManager.Instance.LevelController.Bullets.Add(this);
+            Engine.Debug("se creo una nueva bala");
             CreateAnimations();
-            currentAnimation = idleAnimation;
-            collisionRadius = Height > Width ? Height / 2 : Width / 2;
+            ResetValues();
+
         }
 
         public void Start()
@@ -57,6 +59,16 @@ namespace Game
             currentAnimation.Update();
         }
 
+        public void ResetValues()
+        {
+            GameManager.Instance.LevelController.Bullets.Add(this);
+            currentAnimation = idleAnimation;
+            collisionRadius = Height > Width ? Height / 2 : Width / 2;
+            damage = initialDamage;
+            speed = initialSpeed;
+            currentLifeTime = 0;
+            CreateAnimations();
+        }
         private void CreateAnimations()
         {
             List<Texture> idleTextures = new List<Texture>();
@@ -71,6 +83,8 @@ namespace Game
         public void DestroyBullet()
         {
             GameManager.Instance.LevelController.Bullets.Remove(this);
+            OnDeactivate?.Invoke(this);
+
         }
 
 

@@ -141,23 +141,24 @@ namespace Game
 
         public void WinCondition()
         {
-            if (!LevelController.Enemies.Any())
+            if (!LevelController.Enemies.Any() && !LevelController.TankyShips.Any())
             {
                 ChangeGameState(GameState.WinScreen);
             }
         }
         public void EnemyListIsEmpty()
         {
-            if (!LevelController.Enemies.Any())
+            if (!LevelController.Enemies.Any() && !LevelController.TankyShips.Any())
             {
                 LevelController.CreationOfEnemies();
+                
             }
         }
 
 
         public void InitAudio()
         {
-            //SoundPlayer music = new SoundPlayer("Ataud.wav");
+            SoundPlayer music = new SoundPlayer("Roundabout WAV.wav");
             music.PlayLooping();
         }
     }

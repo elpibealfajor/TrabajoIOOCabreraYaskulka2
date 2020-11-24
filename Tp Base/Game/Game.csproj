@@ -39,18 +39,27 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Bullet.cs" />
-    <Compile Include="Button.cs" />
+    <Compile Include="Componentes\Button.cs" />
+    <Compile Include="Componentes\Collider.cs" />
+    <Compile Include="Componentes\Renderer.cs" />
+    <Compile Include="Componentes\Transform.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="EnemyFactory.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="GenericExample.cs" />
+    <Compile Include="IEnemy.cs" />
     <Compile Include="MonoBehaviour.cs" />
+    <Compile Include="MonsterEnemy.cs" />
+    <Compile Include="PoolBullets.cs" />
+    <Compile Include="ShipEnemy.cs" />
     <Compile Include="SimpleMenuScreen.cs" />
     <Compile Include="LevelController.cs" />
-    <Compile Include="LifeController.cs" />
+    <Compile Include="Componentes\LifeController.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Vector2.cs" />
+    <Compile Include="Componentes\Vector2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ataud.wav">
@@ -131,6 +140,9 @@
     <Content Include="Png\Enemy\Idle\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Png\Hud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Png\Player\Idle\1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -158,8 +170,30 @@
     <Content Include="Png\Screens\Win.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="PowerUps\AttackSpeed\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PowerUps\AttackSpeed\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PowerUps\AttackSpeed\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PowerUps\Damage\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PowerUps\Damage\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PowerUps\Damage\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Roundabout WAV.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Interfaces\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

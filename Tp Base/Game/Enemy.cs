@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : MonoBehaviour 
     {
 
         private float speed;
         private float currentShootingCooldown;
         private float shootingCooldown;
-
+        private float shootCooldown;
         private Animation idleAnimation;
         private Animation destroyAnimation;
         private Animation damageAnimation;
@@ -28,12 +28,13 @@ namespace Game
 
 
 
-        public Enemy(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife) : base(texturePath, position, scale, angle)
+        public Enemy(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife, float shooting, float shootCooldown) : base(texturePath, position, scale, angle)
         {
 
             isAlive = true;
             currentLife = maxLife;
             this.speed = speed;
+            this.shootCooldown = shootCooldown;
 
             CreateAnimations();
             currentAnimation = idleAnimation;
@@ -70,6 +71,13 @@ namespace Game
 
         public  override void Update()
         {
+            currentShootingCooldown -= Program.deltaTime;
+
+            if(currentShootingCooldown <= 0)
+            {
+                currentShootingCooldown = shootCooldown;
+
+            }
             if (isAlive)
             {
                 CheckCollisions(GameManager.Instance.LevelController.Bullets);
@@ -80,6 +88,7 @@ namespace Game
                 if (currentAnimation.CurrentFrameIndex == currentAnimation.FramesCount - 1)
                 {
                     GameManager.Instance.LevelController.Enemies.Remove(this);
+                    GameManager.Instance.LevelController.TankyShips.Remove(this);
                 }
             }
 
@@ -110,6 +119,10 @@ namespace Game
                 currentAnimation = destroyAnimation;
             }
         }
+        private void Shoot()
+        {
+
+        }
         private bool IsBoxColliding(Bullet bullet)
         {
             float distanceX = Math.Abs(Position.X - bullet.Position.X);
@@ -120,5 +133,7 @@ namespace Game
 
             return distanceX <= WidthDiv2 && distanceY <= HeightDiv2;
         }
+
+
     }
 }

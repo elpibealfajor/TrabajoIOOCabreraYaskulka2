@@ -79,3 +79,11 @@ C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\G
 C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\MainMenu.png
 C:\Users\Gaston\Documents\GitHub\IntObjetos\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Screens\Win.png
 C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Ataud.wav
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Png\Hud.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\AttackSpeed\1.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\AttackSpeed\2.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\AttackSpeed\3.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\Damage\1.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\Damage\2.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\PowerUps\Damage\3.png
+C:\Users\cabre\OneDrive\Escritorio\Tp IOO\TrabajoIOOCabreraYaskulka2\Tp Base\Game\bin\Debug\Roundabout WAV.wav
