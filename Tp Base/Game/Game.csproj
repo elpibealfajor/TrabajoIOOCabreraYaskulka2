@@ -38,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Interfaces\IPowerUpInterface.cs" />
+    <Compile Include="PowerUps\DamageUp.cs" />
+    <Compile Include="PowerUps\AttackSpeed.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Componentes\Button.cs" />
     <Compile Include="Componentes\Collider.cs" />
@@ -48,7 +51,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GenericExample.cs" />
-    <Compile Include="IEnemy.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="MonoBehaviour.cs" />
     <Compile Include="MonsterEnemy.cs" />
     <Compile Include="PoolBullets.cs" />
@@ -193,7 +196,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

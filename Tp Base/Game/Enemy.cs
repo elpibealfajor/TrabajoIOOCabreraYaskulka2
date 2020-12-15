@@ -41,7 +41,7 @@ namespace Game
 
         }
 
-        private void CreateAnimations()
+        private  void CreateAnimations()
         {
             List<Texture> idleTextures = new List<Texture>();
             for (int i = 1; i < 5; i++)

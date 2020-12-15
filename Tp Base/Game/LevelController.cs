@@ -10,12 +10,13 @@ namespace Game
     {
         public List<MonoBehaviour> monoBehaviours { get; private set; } = new List<MonoBehaviour>();
 
-        public  List<Bullet> Bullets { get; private set; } = new List<Bullet>();  // globals del program
-        public  List<Enemy> Enemies { get; private set; } = new List<Enemy>();
+        public List<Bullet> Bullets { get; private set; } = new List<Bullet>();  // globals del program
+        public List<Enemy> Enemies { get; private set; } = new List<Enemy>();
 
         public List<Enemy> TankyShips { get; private set; } = new List<Enemy>();
         public Player Player { get; private set; }
 
+        public AttackSpeed attackSpeed {get; set;}
 
         public LevelController()
         {
@@ -27,7 +28,7 @@ namespace Game
             Enemy tankyShip = EnemyFactory.GetInstance(EnemyType.TankShip, new Vector2(730, 350));
             TankyShips.Add(tankyShip);
             Player = new Player("Png/Enemy/Idle/1.png",new Vector2(50, 400), 0.75f, 1f, 200);
-
+            //attackSpeed = new AttackSpeed("PowerUps/AttackSpeed/1.png", new Vector2(200, 400), 1.75f, 0f, 100f, 800, 0.5f, 0.5f);
             Random random = new Random();
 
             CreationOfEnemies();
@@ -53,6 +54,11 @@ namespace Game
             {
                 TankyShips[i].Update();
             }
+            if (attackSpeed != null)
+            {
+
+                attackSpeed.Update();
+            }
         }
 
         public void Render()
@@ -72,6 +78,10 @@ namespace Game
             for (int i = TankyShips.Count - 1; i >= 0; i--)
             {
                 TankyShips[i].Render();
+            }
+            if (attackSpeed != null)
+            {
+                attackSpeed.Render();
             }
         }
 

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    class Collider
+    class DamageUp
     {
-
     }
 }

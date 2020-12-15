@@ -10,7 +10,6 @@ namespace Game
     public enum EnemyType 
     {
         ShipEnemy,
-        FastShip,
         TankShip,
     }
     public static class EnemyFactory
@@ -21,8 +20,6 @@ namespace Game
             {
                 case EnemyType.ShipEnemy:
                     return new Enemy("Png/Enemy/Idle/1.png", position, 0.75f, 0f, 100f, 100, 0.5f, 0.5f);
-                case EnemyType.FastShip:
-                    return new Enemy("Png/Enemy/Idle/1.png", position, 1f, 100f, 100f, 100, 0.5f, 0.5f);
                 case EnemyType.TankShip:
                     return new Enemy("Png/Enemy/Idle/1.png", position, 1.75f, 0f, 100f, 800, 0.5f, 0.5f);
                 default:
