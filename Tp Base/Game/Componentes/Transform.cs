@@ -4,27 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Componentes
+namespace Game
 {
-    public class Transform
-    {
-        private Vector2 position;
-        private float rotation;
-        private Vector2 scale;
+	public class Transform
+	{
+		private float angle;
+		private Vector2 position;
+		private Vector2 scale;
 
+		public Vector2 Scale { get => scale; set => scale = value; }
+		public Vector2 Position { get => position; set => position = value; }
+		public float Angle { get => angle; set => angle = value; }
 
-        public Transform(Vector2 position, float rotation, Vector2 scale)
-        {
-            this.position = position;
-            this.rotation = rotation;
-            this.scale = scale;
-
-        }
-
-        public Vector2 Position { get => position; set => position = value; }
-        public float Rotation { get => rotation; set => rotation = value; }
-
-        public Vector2 Scale { get => scale; set => scale = value; }
-
-    }
+		public Transform(Vector2 position, Vector2 scale, float angle)
+		{
+			this.position = position;
+			this.scale = scale;
+			this.angle = angle;
+		}
+	}
 }
+

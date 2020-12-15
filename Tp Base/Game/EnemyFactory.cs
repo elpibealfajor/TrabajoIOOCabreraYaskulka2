@@ -19,11 +19,11 @@ namespace Game
             switch (enemyType)
             {
                 case EnemyType.ShipEnemy:
-                    return new Enemy("Png/Enemy/Idle/1.png", position, 0.75f, 0f, 100f, 100, 0.5f, 0.5f);
+                    return new Enemy(position, 0.75f, 0f, 100f, 100);
                 case EnemyType.TankShip:
-                    return new Enemy("Png/Enemy/Idle/1.png", position, 1.75f, 0f, 100f, 800, 0.5f, 0.5f);
+                    return new Enemy(position, 1.75f, 0f, 100f, 800);
                 default:
-                    return new Enemy("Png/Enemy/Idle/1.png", position, 0.75f, 0f, 100f, 100, 0.5f, 0.5f);
+                    return new Enemy(position, 0.75f, 0f, 100f, 100);
             }
         }
     }

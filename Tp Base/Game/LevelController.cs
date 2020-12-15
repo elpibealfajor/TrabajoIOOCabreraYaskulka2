@@ -15,8 +15,7 @@ namespace Game
 
         public List<Enemy> TankyShips { get; private set; } = new List<Enemy>();
         public Player Player { get; private set; }
-
-        public AttackSpeed attackSpeed {get; set;}
+        //public AttackSpeed atackspeed { get;  set; }
 
         public LevelController()
         {
@@ -27,13 +26,13 @@ namespace Game
         {
             Enemy tankyShip = EnemyFactory.GetInstance(EnemyType.TankShip, new Vector2(730, 350));
             TankyShips.Add(tankyShip);
-            Player = new Player("Png/Enemy/Idle/1.png",new Vector2(50, 400), 0.75f, 1f, 200);
+            Player = new Player("Png/Player/Idle/1.png", new Vector2(50, 400), 0.75f, 1f, 200,100);
+            //atackspeed = new AttackSpeed("PowerUps/AttackSpeed/1.png", new Vector2(200, 400),0.75f,1f,1f,200,1,1);
             //attackSpeed = new AttackSpeed("PowerUps/AttackSpeed/1.png", new Vector2(200, 400), 1.75f, 0f, 100f, 800, 0.5f, 0.5f);
             Random random = new Random();
 
             CreationOfEnemies();
         }
-
         public void Update()
         {
 
@@ -54,18 +53,18 @@ namespace Game
             {
                 TankyShips[i].Update();
             }
-            if (attackSpeed != null)
-            {
+            //if (atackspeed != null)
+            //{
 
-                attackSpeed.Update();
-            }
+            //    atackspeed.Update();
+            //}
         }
 
         public void Render()
         {
             if (Player != null)
             {
-                Player.Render();
+                Player.Renderer();
             }
             for (int i = Bullets.Count - 1; i >= 0; i--)
             {
@@ -79,10 +78,10 @@ namespace Game
             {
                 TankyShips[i].Render();
             }
-            if (attackSpeed != null)
-            {
-                attackSpeed.Render();
-            }
+            //if (atackspeed != null)
+            //{
+            //    atackspeed.Render();
+            //}
         }
 
         public void CreationOfEnemies()
@@ -102,7 +101,6 @@ namespace Game
                     Enemies.Add(enemies2);
 
                 }
-
             }
         }
     }

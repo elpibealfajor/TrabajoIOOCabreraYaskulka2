@@ -17,21 +17,27 @@ namespace Game
         private bool isMoveUpKeyPressed;
         private bool isMoveDownKeyPressed;
         #endregion
-
         private bool isShootingKeyPressed;
-
+        public static Texture texture;
+        public string texturePath = "Png/Player/Idle/1.png";
         private float currentShootingCooldown;
         private float shootingCooldown = 0.5f;
         private Animation idleAnimation;
         private Animation currentAnimation;
+        protected LifeController lifeController;
         private PoolBullets poolBullets;
-        public Player(string texturePath, Vector2 position, float scale, float angle, float speed) : base(texturePath, position, scale, angle)
+        public Player(string texturePath,Vector2 position, float angle, float scale, float speed, int maxLife):
+            base (texturePath,new Transform (position, new Vector2 (scale, scale), angle), new Render (texture,100,100),new Collider() ,1,1)
         {
+            //this.lifeController = new LifeController(maxLife);
+            texture = Engine.GetTexture(texturePath);
             this.speed = speed;
+
             CreateAnimations();
             currentAnimation = idleAnimation;
             poolBullets = new PoolBullets();
         }
+
 
         //private const float IDLE_ANIMATION_PATH = "Png/Player/Idle/;
         public void InputDetection()
@@ -53,19 +59,19 @@ namespace Game
 
             if (isMoveRightKeyPressed)
             {
-                Position = new Vector2(Position.X + speed * Program.deltaTime, Position.Y);
+                Transform.Position = new Vector2(Transform.Position.X + speed * Program.deltaTime, Transform.Position.Y);
             }
             if (isMoveLeftKeyPressed)
             {
-                Position = new Vector2(Position.X - speed * Program.deltaTime, Position.Y);
+                Transform.Position = new Vector2(Transform.Position.X - speed * Program.deltaTime, Transform.Position.Y);
             }
             if (isMoveUpKeyPressed)
             {
-                Position = new Vector2(Position.X, Position.Y - speed * Program.deltaTime);
+                Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y - speed * Program.deltaTime);
             }
             if (isMoveDownKeyPressed)
             {
-                Position = new Vector2(Position.X, Position.Y + speed * Program.deltaTime);
+                Transform.Position = new Vector2(Transform.Position.X, Transform.Position.Y + speed * Program.deltaTime);
             }
             #endregion
 
@@ -96,7 +102,7 @@ namespace Game
             currentShootingCooldown = shootingCooldown;
             //Bullet bullet = new Bullet(Position, 90f, 1f, 300f, 50);
             Bullet bullet = poolBullets.GetBullet();
-            bullet.Position = Position;
+            bullet.Position = Transform.Position;
         }
     }
 }

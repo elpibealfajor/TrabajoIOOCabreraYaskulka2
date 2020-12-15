@@ -44,7 +44,7 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Componentes\Button.cs" />
     <Compile Include="Componentes\Collider.cs" />
-    <Compile Include="Componentes\Renderer.cs" />
+    <Compile Include="Componentes\Render.cs" />
     <Compile Include="Componentes\Transform.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyFactory.cs" />
@@ -52,7 +52,7 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="GenericExample.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
-    <Compile Include="MonoBehaviour.cs" />
+    <Compile Include="Componentes\MonoBehaviour.cs" />
     <Compile Include="MonsterEnemy.cs" />
     <Compile Include="PoolBullets.cs" />
     <Compile Include="ShipEnemy.cs" />

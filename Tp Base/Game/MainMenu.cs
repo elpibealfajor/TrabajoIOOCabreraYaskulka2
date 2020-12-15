@@ -31,9 +31,9 @@ namespace Game
         {
 
 
-            playButton = new Button(PLAY_BUTTON_TEXTURE_PATH_S, new Vector2(400,250),1,0,PLAY_BUTTON_TEXTURE_PATH_N );
-            creditsButton = new Button(CREDITS_BUTTON_TEXTURE_PATH_S, new Vector2(400, 400),1,0, CREDITS_BUTTON_TEXTURE_PATH_N);
-            quitButton = new Button(QUIT_BUTTON_TEXTURE_PATH_S, new Vector2(400, 550) , 1,0,QUIT_BUTTON_TEXTURE_PATH_N);
+            playButton = new Button(PLAY_BUTTON_TEXTURE_PATH_S, PLAY_BUTTON_TEXTURE_PATH_N,new Vector2(0,-100));
+            creditsButton = new Button(CREDITS_BUTTON_TEXTURE_PATH_S, CREDITS_BUTTON_TEXTURE_PATH_N, new Vector2(0, 50));
+            quitButton = new Button(QUIT_BUTTON_TEXTURE_PATH_S, QUIT_BUTTON_TEXTURE_PATH_N, new Vector2(0, 200));
             buttons.Add(playButton);
             buttons.Add(creditsButton);
             buttons.Add(quitButton);

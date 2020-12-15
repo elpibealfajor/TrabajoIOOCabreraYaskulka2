@@ -7,41 +7,57 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Enemy : MonoBehaviour 
+    public class Enemy
     {
-
+        private float angle;
+        private float scale;
         private float speed;
         private float currentShootingCooldown;
         private float shootingCooldown;
-        private float shootCooldown;
+
+
+
         private Animation idleAnimation;
         private Animation destroyAnimation;
         private Animation damageAnimation;
         private Animation currentAnimation;
 
-        private bool isAlive; // no esta usando life controller
-
+        private bool isAlive;
         private int currentLife;
 
         private float Width => currentAnimation.CurrentFrame.Width;
         private float Height => currentAnimation.CurrentFrame.Height;
+        public Vector2 Position { get; set; } = Vector2.Zero;
 
-
-
-        public Enemy(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife, float shooting, float shootCooldown) : base(texturePath, position, scale, angle)
+        public Enemy(Vector2 initialPosition, float scale, float angle, float speed, int maxLife)
         {
+            Position = initialPosition;
 
             isAlive = true;
             currentLife = maxLife;
+            this.scale = scale;
+            this.angle = angle;
             this.speed = speed;
-            this.shootCooldown = shootCooldown;
 
             CreateAnimations();
             currentAnimation = idleAnimation;
 
         }
 
-        private  void CreateAnimations()
+        public void Render()
+        {
+            Engine.Draw(currentAnimation.CurrentFrame, Position.X, Position.Y, scale, scale, angle, GetOffSetX(), GetOffSetY());
+        }
+        private float GetOffSetX()
+        {
+            return (currentAnimation.CurrentFrame.Width * scale) / 2f;
+        }
+
+        private float GetOffSetY()
+        {
+            return (currentAnimation.CurrentFrame.Height) / 2f;
+        }
+        private void CreateAnimations()
         {
             List<Texture> idleTextures = new List<Texture>();
             for (int i = 1; i < 5; i++)
@@ -69,15 +85,8 @@ namespace Game
 
         }
 
-        public  override void Update()
+        public virtual void Update()
         {
-            currentShootingCooldown -= Program.deltaTime;
-
-            if(currentShootingCooldown <= 0)
-            {
-                currentShootingCooldown = shootCooldown;
-
-            }
             if (isAlive)
             {
                 CheckCollisions(GameManager.Instance.LevelController.Bullets);
@@ -88,12 +97,10 @@ namespace Game
                 if (currentAnimation.CurrentFrameIndex == currentAnimation.FramesCount - 1)
                 {
                     GameManager.Instance.LevelController.Enemies.Remove(this);
-                    GameManager.Instance.LevelController.TankyShips.Remove(this);
                 }
             }
 
             currentAnimation.Update();
-            texture = currentAnimation.CurrentFrame;
         }
 
         private void CheckCollisions(List<Bullet> bullets)
@@ -119,10 +126,6 @@ namespace Game
                 currentAnimation = destroyAnimation;
             }
         }
-        private void Shoot()
-        {
-
-        }
         private bool IsBoxColliding(Bullet bullet)
         {
             float distanceX = Math.Abs(Position.X - bullet.Position.X);
@@ -133,7 +136,6 @@ namespace Game
 
             return distanceX <= WidthDiv2 && distanceY <= HeightDiv2;
         }
-
-
     }
 }
+

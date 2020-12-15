@@ -6,39 +6,50 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Button : MonoBehaviour
+    public class Button
     {
-        private Texture selectedTexture;
-        private Texture normalTexture;
+        private Vector2 position;
+        private string selectedTexture;
+        private string normalTexture;
+        private string currentTexture;
 
         public Button NextButton { get; private set; }
         public Button PreviousButton { get; private set; }
 
-        public Button(string texturePath, Vector2 position, float scale, float angle, string selectedTexture) : base(texturePath, position, scale, angle)
+        public Button(string selectedTexture, string normalTexture, Vector2 position)
         {
-            this.selectedTexture = Engine.GetTexture(selectedTexture);
-            this.normalTexture = Engine.GetTexture(texturePath);
-            this.texture = normalTexture;
+            this.selectedTexture = selectedTexture;
+            this.normalTexture = normalTexture;
+            this.position = position;
+
+            this.currentTexture = normalTexture;
             NormalButton();
         }
 
-        public void AssignedButtons( Button previousButton, Button nextButton)
+        public void AssignedButtons(Button previousButton, Button nextButton)
         {
             NextButton = nextButton;
             PreviousButton = previousButton;
-        }
 
+        }
+        public void Update()
+        {
+
+        }
 
         public void SelectedButton()
         {
-            this.texture = selectedTexture;
+            this.currentTexture = selectedTexture;
         }
 
         public void NormalButton()
         {
-            this.texture = normalTexture;
+            this.currentTexture = normalTexture;
         }
 
-
+        public void Render()
+        {
+            Engine.Draw(currentTexture, position.X, position.Y);
+        }
     }
 }

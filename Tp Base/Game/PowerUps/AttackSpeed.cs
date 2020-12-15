@@ -16,12 +16,13 @@ namespace Game
         private bool isAlive; // no esta usando life controller
 
         private int currentLife;
-        public AttackSpeed(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife, float shooting, float shootCooldown) : base(texturePath, position, scale, angle, speed, maxLife, shooting, shootCooldown)
+        public AttackSpeed(string texturePath, Vector2 position, float scale, float angle, float speed, int maxLife, float shooting, float shootCooldown) 
+            : base(position, scale, angle,speed,maxLife)
         {
             isAlive = true;
             currentLife = maxLife;
             CreateAnimations();
-            currentAnimation = idleAnimation;
+            //currentAnimation = idleAnimation;
         }
 
         public override void Update()
